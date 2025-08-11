@@ -26,19 +26,19 @@
     // }
   }
 
-  function getRandomNumOfQuestions(numberOfQuestions) {
-    let questions = [];
-
-    while (questions.length < numberOfQuestions) {
-      let randomIndex = Math.floor(Math.random() * data.length);
-      let randomQuestion = data[randomIndex];
-
-      if (!questions.includes(randomQuestion)) {
-        questions.push(randomQuestion);
-      }
+  function getQuestions(numberOfQuestions) {
+    // For full assessment (72 questions), return all questions in order
+    if (numberOfQuestions === 72) {
+      return data.slice(0, 72);
     }
-
-    return questions;
+    // For quick quiz (24 questions), return first 24 questions in order
+    else if (numberOfQuestions === 24) {
+      return data.slice(0, 24);
+    }
+    // For any other case, return all questions in order
+    else {
+      return data;
+    }
   }
 
   onMount(() => {
@@ -61,7 +61,7 @@
     numberOfQuestions = $store.numQuestions;
 
     if (numberOfQuestions > 0) {
-      questions = getRandomNumOfQuestions(numberOfQuestions);
+      questions = getQuestions(numberOfQuestions);
     } else {
       numberOfQuestions = data.length;
       questions = data;
