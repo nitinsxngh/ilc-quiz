@@ -1,5 +1,6 @@
 <script>
   import QuestionSystem from "./lib/QuestionSystem.svelte";
+  import UserInfoPopup from "./lib/UserInfoPopup.svelte";
   import { store, loadData } from "./assets/store.js";
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
@@ -13,6 +14,8 @@
   let canStart = false;
   let finishedTransition = false;
   let isSpanish = getLanguage() === "es";
+  let showUserInfoPopup = true;
+  let userInfo = null;
 
   onMount(() => {
     musicBg.volume = 0.1;
@@ -64,6 +67,16 @@
       <img src="/ilc-logo.png" alt="ILC Logo" class="w-16 h-16 rendering-pixelated" />
     </div>
     
+    <!-- User Info Popup -->
+    <UserInfoPopup 
+      isOpen={showUserInfoPopup} 
+      on:userInfoComplete={(event) => {
+        userInfo = event.detail;
+        showUserInfoPopup = false;
+        canStart = true;
+      }}
+    />
+    
     <section>
       {#if canStart}
         {#if finishedTransition}
@@ -85,31 +98,41 @@
             finishedTransition = true;
           }}">
           <div
-            class="flex flex-col select-none justify-center items-center text-center h-[45vh] w-screen bg-black/50 hover:bg-black/60 transition-all duration-300 z-10"
+            class="flex flex-col select-none justify-center items-center text-center h-[45vh] w-screen transition-all duration-300 z-10 {userInfo ? 'bg-black/50 hover:bg-black/60 cursor-pointer' : 'bg-black/30 cursor-not-allowed'}"
             on:click="{() => {
-              canStart = true;
+              if (userInfo) {
+                canStart = true;
+              }
             }}"
             on:keydown>
-            <h1 class="text-4xl lg:text-8xl text-white animate-pulse">
+            <h1 class="text-4xl lg:text-8xl text-white {userInfo ? 'animate-pulse' : 'opacity-50'}">
               {data.strings["NormalMode"]}
             </h1>
-            <h1 class="text-2xl lg:text-4xl text-white/75">
+            <h1 class="text-2xl lg:text-4xl text-white/75 {userInfo ? '' : 'opacity-50'}">
               {data.strings["10"]}
             </h1>
+            {#if !userInfo}
+              <p class="text-white/60 text-lg mt-4">Complete user info first</p>
+            {/if}
           </div>
           <div
-            class="flex flex-col select-none justify-center items-center text-center h-[45vh] w-screen bg-black/50 hover:bg-black/60 transition-all duration-300 z-10"
+            class="flex flex-col select-none justify-center items-center text-center h-[45vh] w-screen transition-all duration-300 z-10 {userInfo ? 'bg-black/50 hover:bg-black/60 cursor-pointer' : 'bg-black/30 cursor-not-allowed'}"
             on:click="{() => {
-              canStart = true;
-              $store.numQuestions = -1;
+              if (userInfo) {
+                canStart = true;
+                $store.numQuestions = -1;
+              }
             }}"
             on:keydown>
-            <h1 class="text-4xl lg:text-8xl text-white animate-pulse">
+            <h1 class="text-4xl lg:text-8xl text-white {userInfo ? 'animate-pulse' : 'opacity-50'}">
               {data.strings["FullMode"]}
             </h1>
-            <h1 class="text-2xl lg:text-4xl text-white/75">
+            <h1 class="text-2xl lg:text-4xl text-white/75 {userInfo ? '' : 'opacity-50'}">
               {data.strings["63"]}
             </h1>
+            {#if !userInfo}
+              <p class="text-white/60 text-lg mt-4">Complete user info first</p>
+            {/if}
           </div>
           <div
             class="flex flex-col select-none justify-center items-center text-center h-[10vh] w-screen bg-black/50 hover:bg-black/60 transition-all duration-300 z-10"
@@ -120,6 +143,9 @@
             <p class="text-sm lg:text-2xl text-white/75 underline">
               {data.strings["Credits"]}
             </p>
+            {#if userInfo}
+              <p class="text-xs text-white/60 mt-1">Welcome, {userInfo.name}!</p>
+            {/if}
           </div>
         </div>
       {/if}
