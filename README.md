@@ -1,68 +1,33 @@
-# Comprehensive Personality Assessment Tool
+# ILC-Quiz
 
-## About
-
-This is a comprehensive personality assessment tool that combines multiple psychological frameworks to provide a detailed understanding of individual personality traits, learning styles, and motivational factors. Built using modern web technologies including Svelte, TailwindCSS, and Vite for optimal performance and user experience.
-
-I have no idea of what I'm doing (well, I have some), I'm not a web developer, this is my second frontend project, the first one was a simple sign up form to get used to this.
-
-Code is kind of a mess, it works, there are no bugs (that I know) and it works fine. If you want to check the code of this repo as inspiration... Please don't, give me sometime to clean it up.
-
-If you have any question you can contact me on [Twitter](https://twitter.com/rionisguild) or open an issue on this repo.
-
-## Contributing
-
-If you would like to help improving this website or if you want to help me translate it to your language, please read the [Contributing](./Contributing.md) file.
-
-Don't forget to check [Acknowledgements](#acknowledgements).
+A comprehensive personality assessment tool built with modern web technologies.
 
 ## Features
 
-- **Multi-Framework Assessment**: Combines MBTI, Big Five, Holland RIASEC, Learning Styles, and Motivation factors
-- **72 Comprehensive Questions**: Covers all major personality dimensions
-- **Two Assessment Modes**: Quick Quiz (24 questions) and Full Assessment (72 questions)
-- **Interactive Results**: Visual radar charts and detailed trait analysis
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
-- **Modern UI**: Clean, intuitive interface with smooth animations
+- **72 Questions** covering MBTI, Big Five, Holland RIASEC, Learning Styles, and Motivation
+- **Two Modes**: Quick Quiz (24 questions) and Full Assessment (72 questions)
+- **Responsive Design** for all devices
+- **Multi-language Support** (EN, ES, IT, FR, DE, PT)
+- **Interactive Results** with radar charts and detailed analysis
 
-## Images
+## Tech Stack
 
-|                                           |                                           |
-|-------------------------------------------|-------------------------------------------|
-| !["Starting_Screen"](./readmefiles/1.png) | !["Starting_Screen"](./readmefiles/2.png) |
-| !["Starting_Screen"](./readmefiles/4.png) | !["Starting_Screen"](./readmefiles/3.png) |
+- **Frontend**: Svelte + Vite
+- **Styling**: Tailwind CSS
+- **Charts**: Chart.js
+- **Build Tool**: Vite
 
+## Quick Start
 
-## Assets used
+```bash
+npm install
+npm run dev
+```
 
-I tried using the original assets ripped from the game to be as faithful as possible to the game while still adapting it a little to fit these times.
+## About
 
-Althought not all assets are mine, here are the sources:
+Created by ILC - Comprehensive personality assessment for personal and professional development.
 
-- [Font](https://www.dafont.com/es/wonder-mail.font)
-- [Questions and Natures [ES]](https://www.wikidex.net/wiki/Test_de_personalidad_de_Pokémon_Mundo_misterioso:_Exploradores_del_cielo)
-- [Questions [EN] (ripped from html)](https://explorerofsky.github.io/pmd-sky-quiz/)
-  - The points were wrong, now I use another source (check update below)
-- [Natures [EN]](https://www.deviantart.com/sparklespeed/journal/Pokemon-Mystery-Dungeon-EoS-Nature-Descriptions-439788647)
-- Sprites were ripped from the game
-- Sounds were ripped from the game
-- Music was ripped from the game
-- [Background sprite](https://discord.com/channels/710190644152369162/1029472133073604708/1035347628025716816)
-  - These were thanks to Palika on SkyTemple Discord. I modified them to make the transition in the browser seamless.
+---
 
-Update:
- - [Questions and point data is now taken from PMD Info Spreadsheet](https://docs.google.com/spreadsheets/d/18utO_lCpWQ7iXY9wpbtxXpgmzebEI2IRjADp6IrUKZ0/view#gid=422133115)
-   - Thanks [UserNameFolder](https://www.reddit.com/r/MysteryDungeon/comments/ylgmf5/comment/iuyhfdr/?utm_source=share&utm_medium=web2x&context=3) for pointing it out ^^
-
-# Acknowledgements
-
-- Italian support thanks to [Luca Bertero](https://github.com/luca-bertero)
-- French support thanks to [Luca Bertero](https://github.com/luca-bertero)
-- German support thanks to [Luca Bertero](https://github.com/luca-bertero)
-- Portuguese support thanks to [HappityHap](https://twitter.com/Happy_Hap1227)
-
-# License
-
-The code of this project is licensed under CC0 1.0 Universal (CC0 1.0) Public Domain Dedication. To view a copy of this license, visit [here](https://creativecommons.org/publicdomain/zero/1.0/) or check the [LICENSE](./LICENSE.md) file.
-
-All the assets used in this project are property of Nintendo and Creatures Inc. and are used under fair use for learning purposes.
+*Built with ❤️ using modern web technologies*
