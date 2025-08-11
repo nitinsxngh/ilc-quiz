@@ -63,13 +63,13 @@
 {:then data}
   <main class="relative" transition:fade>
     <!-- ILC Logo in top left -->
-    <div class="absolute top-4 left-4 md:left-16 z-20">
-      <img src="/ilc-logo.png" alt="ILC Logo" class="w-16 h-16 rendering-pixelated" />
+    <div class="absolute top-4 left-2 md:left-16 z-10">
+      <img src="/ilc-logo.png" alt="ILC Logo" class="w-12 h-12 md:w-16 md:h-16 rendering-pixelated" />
     </div>
     
     <!-- Welcome message in top right -->
     {#if userInfo}
-      <div class="absolute top-4 right-4 z-20 text-right">
+      <div class="absolute top-4 right-2 md:right-4 z-10 text-right">
         <div class="text-white text-sm font-bold bg-black/30 px-3 py-1 rounded-lg">
           Welcome, {userInfo.name}!
         </div>
@@ -98,7 +98,7 @@
         {/if}
       {:else}
         <div
-          class="flex flex-col flex-wrap h-screen justify-end bg-none"
+          class="flex flex-col flex-wrap h-screen justify-end bg-none pt-20 md:pt-24"
           transition:fade
           on:outroend="{() => {
             if (!isPlaying) {
