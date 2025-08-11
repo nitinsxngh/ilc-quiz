@@ -1,7 +1,9 @@
 {
-  "name": "svelte-simple-form",
+  "name": "ilc-quiz",
+  "description": "Comprehensive personality assessment tool with 72 questions covering MBTI, Big Five, Holland RIASEC, Learning Styles, and Motivation factors",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "homepage": "https://nitinsxngh.github.io/ilc-quiz",
   "type": "module",
   "scripts": {
     "dev": "vite",
