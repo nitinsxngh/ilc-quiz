@@ -67,6 +67,18 @@
       <img src="/ilc-logo.png" alt="ILC Logo" class="w-16 h-16 rendering-pixelated" />
     </div>
     
+    <!-- Welcome message in top right -->
+    {#if userInfo}
+      <div class="absolute top-4 right-4 z-20 text-right">
+        <div class="w-16 h-16 bg-blue-500 rounded-full mx-auto mb-2 flex items-center justify-center border-3 border-white/30 shadow-lg">
+          <img src="/ilc-logo.png" alt="Profile" class="w-10 h-10 rendering-pixelated" />
+        </div>
+        <div class="text-white text-sm font-bold bg-black/30 px-3 py-1 rounded-lg">
+          Welcome, {userInfo.name}!
+        </div>
+      </div>
+    {/if}
+    
     <!-- User Info Popup -->
     <UserInfoPopup 
       isOpen={showUserInfoPopup} 
