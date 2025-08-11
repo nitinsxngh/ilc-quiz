@@ -78,7 +78,7 @@
               type="tel"
               bind:value={phoneNumber}
               placeholder="Enter your phone number"
-              class="w-full px-3 py-2 rounded-lg border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:border-yellow-400 focus:outline-none transition-all text-sm"
+              class="w-full px-4 py-3 rounded-lg border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:border-yellow-400 focus:outline-none transition-all text-base text-center"
               on:keydown={(e) => handleKeydown(e, 2)}
             />
           </div>
@@ -108,7 +108,7 @@
               type="text"
               bind:value={userName}
               placeholder="Enter your name"
-              class="w-full px-3 py-2 rounded-lg border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:border-green-400 focus:outline-none transition-all text-sm"
+              class="w-full px-4 py-3 rounded-lg border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:border-green-400 focus:outline-none transition-all text-base text-center"
               on:keydown={(e) => handleKeydown(e, 3)}
             />
           </div>
