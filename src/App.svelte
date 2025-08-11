@@ -73,7 +73,8 @@
       on:userInfoComplete={(event) => {
         userInfo = event.detail;
         showUserInfoPopup = false;
-        canStart = true;
+        // Don't automatically start quiz, let user choose
+        canStart = false;
       }}
     />
     
@@ -101,6 +102,7 @@
             class="flex flex-col select-none justify-center items-center text-center h-[45vh] w-screen transition-all duration-300 z-10 {userInfo ? 'bg-black/50 hover:bg-black/60 cursor-pointer' : 'bg-black/30 cursor-not-allowed'}"
             on:click="{() => {
               if (userInfo) {
+                $store.numQuestions = 24;
                 canStart = true;
               }
             }}"
@@ -119,8 +121,8 @@
             class="flex flex-col select-none justify-center items-center text-center h-[45vh] w-screen transition-all duration-300 z-10 {userInfo ? 'bg-black/50 hover:bg-black/60 cursor-pointer' : 'bg-black/30 cursor-not-allowed'}"
             on:click="{() => {
               if (userInfo) {
+                $store.numQuestions = 72;
                 canStart = true;
-                $store.numQuestions = -1;
               }
             }}"
             on:keydown>
