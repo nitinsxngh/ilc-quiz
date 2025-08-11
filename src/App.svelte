@@ -74,11 +74,6 @@
         userInfo = event.detail;
         showUserInfoPopup = false;
         canStart = true;
-        
-        // Set the number of questions based on selected quiz mode
-        if (event.detail.quizMode) {
-          $store.numQuestions = event.detail.quizMode.questions;
-        }
       }}
     />
     
