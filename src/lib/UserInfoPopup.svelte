@@ -11,6 +11,10 @@
   let userName = '';
   let currentStatus = '';
   
+  // References for auto-focus
+  let phoneInput;
+  let nameInput;
+  
   const statusOptions = [
     'High School Student',
     'College Student', 
@@ -56,6 +60,15 @@
       else if (nextStep === 4) handleStatusSubmit();
     }
   }
+  
+  // Auto-focus logic
+  $: if (currentStep === 1 && phoneInput) {
+    setTimeout(() => phoneInput.focus(), 100);
+  }
+  
+  $: if (currentStep === 2 && nameInput) {
+    setTimeout(() => nameInput.focus(), 100);
+  }
 </script>
 
 {#if isOpen}
@@ -75,6 +88,7 @@
           
           <div class="mb-4">
             <input
+              bind:this={phoneInput}
               type="tel"
               bind:value={phoneNumber}
               placeholder="Enter your phone number"
@@ -105,6 +119,7 @@
           
           <div class="mb-4">
             <input
+              bind:this={nameInput}
               type="text"
               bind:value={userName}
               placeholder="Enter your name"
