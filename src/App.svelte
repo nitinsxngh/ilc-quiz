@@ -154,9 +154,6 @@
             <p class="text-sm lg:text-2xl text-white/75 underline">
               {data.strings["Credits"]}
             </p>
-            {#if userInfo}
-              <p class="text-xs text-white/60 mt-1">Welcome, {userInfo.name}!</p>
-            {/if}
           </div>
         </div>
       {/if}
