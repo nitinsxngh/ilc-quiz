@@ -17,6 +17,11 @@
     'Professional'
   ];
   
+  const quizModes = [
+    { name: 'Quick Quiz', questions: 24, description: 'MBTI Assessment Only' },
+    { name: 'Full Assessment', questions: 72, description: 'Complete Personality Profile' }
+  ];
+  
   function handlePhoneSubmit() {
     if (phoneNumber.trim()) {
       currentStep = 2;
@@ -31,14 +36,19 @@
   
   function handleStatusSubmit() {
     if (currentStatus) {
-      // Send all collected data
-      dispatch('userInfoComplete', {
-        phone: phoneNumber,
-        name: userName,
-        status: currentStatus
-      });
-      closePopup();
+      currentStep = 4;
     }
+  }
+  
+  function handleQuizModeSelect(mode) {
+    // Send all collected data with selected quiz mode
+    dispatch('userInfoComplete', {
+      phone: phoneNumber,
+      name: userName,
+      status: currentStatus,
+      quizMode: mode
+    });
+    closePopup();
   }
   
   function closePopup() {
@@ -164,6 +174,37 @@
               Start Quiz! 🚀
             </button>
           </div>
+        </div>
+      {/if}
+      
+      <!-- Step 4: Quiz Mode Selection -->
+      {#if currentStep === 4}
+        <div class="text-center">
+          <div class="mb-4">
+            <div class="w-16 h-16 bg-blue-400 rounded-full mx-auto mb-3 flex items-center justify-center border-3 border-white/30 shadow-lg">
+              <span class="text-2xl">🎯</span>
+            </div>
+            <h2 class="text-xl font-bold text-white mb-2">Choose Your Quiz!</h2>
+            <p class="text-white/80 text-sm">Select your preferred assessment mode</p>
+          </div>
+          
+          <div class="mb-4 space-y-2">
+            {#each quizModes as mode}
+              <button
+                on:click={() => handleQuizModeSelect(mode)}
+                class="w-full p-3 rounded-lg border-2 transition-all transform hover:scale-105 text-sm border-white/30 bg-white/10 text-white hover:border-blue-400/50 hover:bg-blue-400/10"
+              >
+                <div class="font-bold">{mode.name}</div>
+                <div class="text-xs text-white/70">{mode.description}</div>
+              </button>
+            {/each}
+          </div>
+          
+          <button
+            on:click={() => currentStep = 3}
+            class="w-full bg-gray-500 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded-lg transition-all transform hover:scale-105 shadow-lg text-sm">
+            ← Back
+          </button>
         </div>
       {/if}
       
