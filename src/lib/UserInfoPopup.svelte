@@ -80,7 +80,7 @@
         <div class="text-center">
           <div class="mb-4">
             <div class="w-16 h-16 bg-yellow-400 rounded-full mx-auto mb-3 flex items-center justify-center border-3 border-white/30 shadow-lg">
-              <span class="text-2xl">📱</span>
+              <img src="/ilc-logo.png" alt="ILC Logo" class="w-10 h-10 rendering-pixelated" />
             </div>
             <h2 class="text-xl font-bold text-white mb-2">Welcome to ILC Quiz!</h2>
             <p class="text-white/80 text-sm">Let's start with your phone number</p>
@@ -92,7 +92,7 @@
               type="tel"
               bind:value={phoneNumber}
               placeholder="Enter your phone number"
-              class="w-full px-4 py-3 rounded-lg border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:border-yellow-400 focus:outline-none transition-all text-base text-center"
+              class="w-full px-4 py-3 rounded-lg border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:border-yellow-400 focus:outline-none transition-all text-lg text-center"
               on:keydown={(e) => handleKeydown(e, 2)}
             />
           </div>
@@ -111,7 +111,7 @@
         <div class="text-center">
           <div class="mb-4">
             <div class="w-16 h-16 bg-green-400 rounded-full mx-auto mb-3 flex items-center justify-center border-3 border-white/30 shadow-lg">
-              <span class="text-2xl">👤</span>
+              <img src="/ilc-logo.png" alt="ILC Logo" class="w-10 h-10 rendering-pixelated" />
             </div>
             <h2 class="text-xl font-bold text-white mb-2">Great!</h2>
             <p class="text-white/80 text-sm">Now tell us your name</p>
@@ -123,7 +123,7 @@
               type="text"
               bind:value={userName}
               placeholder="Enter your name"
-              class="w-full px-4 py-3 rounded-lg border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:border-green-400 focus:outline-none transition-all text-base text-center"
+              class="w-full px-4 py-3 rounded-lg border-2 border-white/30 bg-white/10 text-white placeholder-white/60 focus:border-green-400 focus:outline-none transition-all text-lg text-center"
               on:keydown={(e) => handleKeydown(e, 3)}
             />
           </div>
@@ -149,7 +149,7 @@
         <div class="text-center">
           <div class="mb-4">
             <div class="w-16 h-16 bg-purple-400 rounded-full mx-auto mb-3 flex items-center justify-center border-3 border-white/30 shadow-lg">
-              <span class="text-2xl">🎓</span>
+              <img src="/ilc-logo.png" alt="ILC Logo" class="w-10 h-10 rendering-pixelated" />
             </div>
             <h2 class="text-xl font-bold text-white mb-2">Almost Done!</h2>
             <p class="text-white/80 text-sm">What's your current status?</p>
