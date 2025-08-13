@@ -55,7 +55,23 @@
 
   function createChart() {
     const ctx = chart.getContext("2d");
-    let options = radialChartConfig;
+    let options = JSON.parse(JSON.stringify(radialChartConfig)); // Deep copy to avoid modifying original
+    
+    // Responsive font sizing based on screen width
+    const isMobile = window.innerWidth < 768;
+    const isTablet = window.innerWidth < 1024;
+    
+    if (isMobile) {
+      options.scales.r.pointLabels.font.size = 10;
+      options.plugins.title.font.size = 14;
+    } else if (isTablet) {
+      options.scales.r.pointLabels.font.size = 11;
+      options.plugins.title.font.size = 15;
+    } else {
+      options.scales.r.pointLabels.font.size = 12;
+      options.plugins.title.font.size = 16;
+    }
+    
     options.plugins.title.text = $store.strings['radarChartLabel'];
 
     myChart = new Chart(ctx, {
@@ -67,6 +83,20 @@
 
   onMount(() => {
     createChart();
+    
+    // Handle window resize for responsive chart
+    const handleResize = () => {
+      if (myChart) {
+        myChart.destroy();
+        createChart();
+      }
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   });
 
   let classes = $$props.class;
@@ -74,5 +104,7 @@
 
 <div
   class="h-fit min-w-screen rounded-xl p-2 transition-all text-box {classes}">
-  <canvas bind:this="{chart}"></canvas>
+  <div class="relative w-full h-64 md:h-80 lg:h-96">
+    <canvas bind:this="{chart}"></canvas>
+  </div>
 </div>

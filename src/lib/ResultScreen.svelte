@@ -73,7 +73,7 @@
       <!-- Right grid -->
       <div
         class="bg-black/50 flex flex-col flex-wrap justify-start lg:justify-center items-center pb-2">
-        <RadialChart class="w-[75%] m-0 p-0" />
+        <RadialChart class="w-[98%] md:w-[85%] lg:w-[75%] m-0 p-0" />
 
         <button
         on:click="{() => {

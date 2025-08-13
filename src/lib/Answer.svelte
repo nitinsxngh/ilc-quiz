@@ -54,8 +54,8 @@
 
 <div
   class="h-fit min-w-screen dynamicMargin dynamicText transitiona-all duration-200  {clicked
-    ? 'my-2'
-    : 'my-1'}">
+    ? 'my-1'
+    : 'my-0.5'}">
   <audio bind:this={clickSound} src="audio/select-sound.mp3" type="audio/mp3" controls={false} preload="auto"></audio>
   <button
     on:click="{onClick}"

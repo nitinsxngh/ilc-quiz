@@ -62,14 +62,14 @@
   </div>
 {:then data}
   <main class="relative" transition:fade>
-    <!-- ILC Logo in top left -->
-    <div class="absolute top-4 left-4 md:left-16 z-20">
+    <!-- ILC Logo in top left - hidden on mobile when quiz starts -->
+    <div class="absolute top-4 left-4 md:left-16 z-20 {canStart ? 'hidden md:block' : 'block'}">
       <img src="/ilc-logo.png" alt="ILC Logo" class="w-16 h-16 rendering-pixelated" />
     </div>
     
-    <!-- Welcome message in top right -->
+    <!-- Welcome message in top right - hidden on mobile when quiz starts -->
     {#if userInfo}
-      <div class="absolute top-4 right-4 z-20 text-right">
+      <div class="absolute top-4 right-4 z-20 text-right {canStart ? 'hidden md:block' : 'block'}">
         <div class="text-white text-sm font-bold bg-black/30 px-3 py-1 rounded-lg">
           Welcome, {userInfo.name}!
         </div>

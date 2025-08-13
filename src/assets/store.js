@@ -43,7 +43,7 @@ export const radialChartConfig = {
       color: 'rgba(245, 245, 245, 1)',
       font:
       {
-        size: 20,
+        size: 16,
       },
       padding: {
         top: 0,
@@ -56,6 +56,7 @@ export const radialChartConfig = {
     },
   },
   responsive: true,
+  maintainAspectRatio: false,
   scale: {
     ticks: {
       display: false,
@@ -90,7 +91,15 @@ export const radialChartConfig = {
         color: 'rgba(245, 245, 245, 0.9)',
         font:
         {
-          size: 11,
+          size: 12,
+        },
+        callback: function(value, index) {
+          // More aggressive truncation for mobile
+          const label = value;
+          if (label.length > 8) {
+            return label.substring(0, 8) + '...';
+          }
+          return label;
         }
       },
       suggestedMin: 0,
