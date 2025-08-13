@@ -5,7 +5,7 @@ A comprehensive personality assessment tool built with modern web technologies.
 ## Features
 
 - **72 Questions** covering MBTI, Big Five, Holland RIASEC, Learning Styles, and Motivation
-- **Two Modes**: Quick Quiz (24 questions) and Full Assessment (72 questions)
+- **Full Assessment Mode** with comprehensive personality evaluation
 - **Responsive Design** for all devices
 - **Multi-language Support** (EN, ES, IT, FR, DE, PT)
 - **Interactive Results** with radar charts and detailed analysis
